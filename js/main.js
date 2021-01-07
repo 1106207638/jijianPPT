@@ -109,7 +109,9 @@ const Editor = {
     this.$editInput = $('.editor textarea')
     this.$saveBtn = $('.editor .button-save')
     this.$slideContainer = $('.slides')
-    this.markdown = localStorage.markdown || `# one slide`
+    this.markdown = localStorage.markdown || `# 极简PPT 
+                              两分钟就可以做出精美PPT
+    `
 
     this.bind()
     this.start()
@@ -145,13 +147,40 @@ const Editor = {
 }
 
 
+const Theme = {
+  init() {
+    this.$$figures = $$('.theme figure')
+    this.bind()
+    this.loadTheme()
+  },
+  bind() {
+    this.$$figures.forEach($figure => $figure.onclick = () => {
+      this.$$figures.forEach($item => $item.classList.remove('select'))
+      $figure.classList.add('select')
+      this.setTheme($figure.dataset.theme)
+    })
+  },
+  setTheme(theme) {
+    localStorage.theme = theme
+    location.reload()
+  },
+  loadTheme() {
+    let theme = localStorage.theme || 'beige'
+    let $link = document.createElement('link')
+    $link.rel = 'stylesheet'
+    $link.href = `css/theme/${theme}.css`
+    document.head.appendChild($link)
+  }
+}
+
+
 const App = {
   init() {
     [...arguments].forEach(Module => Module.init())
   }
 }
 
-App.init(Menu, Editor)
+App.init(Menu, Editor, Theme)
 
 
 
