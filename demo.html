@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-02-24 18:15:46
- * @LastEditTime: 2020-03-04 22:01:58
+ * @LastEditTime: 2020-03-06 22:10:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /oneslide/demo.html
@@ -35,11 +35,16 @@
 
 	<!-- Printing and PDF exports -->
 	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
+			// var link = document.createElement( 'link' );
+			// link.rel = 'stylesheet';
+			// link.type = 'text/css';
+			// if(window.location.search.match( /print-pdf/gi )) {
+			// 	link.href = 'css/print/pdf.css';
+			// 	window.print()
+			// } else {
+			// 	link.href = 'css/print/paper.css';
+			// }
+			// document.getElementsByTagName( 'head' )[0].appendChild( link );
 	</script>
 
 	<!--[if lt IE 9]>
@@ -57,7 +62,7 @@
 		<div class="detail">
 			<div class="tab active"><span class="iconfont icon-edit"></span>内容编辑</div>
 			<div class="tab"><span class="iconfont icon-theme"></span>主题与特效</div>
-			<div class="tab"><span class="iconfont icon-download"></span>下载PDF</div>
+			<div class="tab download"><span class="iconfont icon-download"></span>下载PDF</div>
 			<div class="content active">
 				<div class="header">编辑</div>
 				<div class="body editor">
@@ -68,11 +73,11 @@
 				</div>
 			</div>
 			<div class="content">
-				<div class="header">主题</div>
+				<div class="header">主题特效</div>
 				<div class="body theme">
-					<p>主题特效</p>
+					<h5>主题</h5>
 					<div class="themes">
-						<figure class="select" data-theme="select">
+						<figure data-theme="beige">
 							<img src="./img/beige.png" alt="beige">
 							<figcaption>beige</figcaption>
 						</figure>
@@ -117,6 +122,22 @@
 							<figcaption>white</figcaption>
 						</figure>
 					</div>
+
+					<h5>转场</h5>
+					<select class="transition">
+						<option value="slide">滑动</option>
+						<option value="fade">淡化</option>
+						<option value="convex">凸出</option>
+						<option value="concave">凹陷</option>
+						<option value="zoom">缩放</option>
+						<option value="none">无</option>
+					</select>
+
+					<h5>对齐</h5>
+					<select class="align">
+						<option value="center">居中</option>
+						<option value="left-top">左上</option>
+					</select>
 				</div>
 			</div>
 			<div class="content">
