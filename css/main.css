@@ -178,3 +178,14 @@ button:hover {
 .menu .theme .align {
   margin-top: 20px;
 }
+
+.menu .editor [type="file"] {
+  display: none;
+}
+.menu .editor .uploader {
+  padding: 10px;
+  cursor: pointer;
+}
+.menu .editor label {
+  cursor: pointer;
+}
