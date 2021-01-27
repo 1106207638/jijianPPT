@@ -115,11 +115,13 @@ const ImgUploader = {
     this.bind()
   },
   bind() {
+    function Trim(str) {
+      return str.replace(/(^\s*)|(\s*$)/g, "");
+    }
     let self = this
     this.$fileInput.onchange = function () {
       if (this.files.length > 0) {
         let localFile = this.files[0]
-        console.log(localFile)
         if (localFile.size / 1048576 > 2) {
           alert('文件不能超过2M')
           return
@@ -132,8 +134,6 @@ const ImgUploader = {
             self.insertText(`![上传中，进度${progress.percent}%]()`)
           }
         }).then(file => {
-          console.log('文件保存完成')
-          console.log(file)
           let text = `![${file.attributes.name}](${file.attributes.url}?imageView2/0/w/800/h/600)`
           self.insertText(text)
         }).catch(err => console.log(err))
@@ -160,8 +160,11 @@ const Editor = {
     this.$saveBtn = $('.editor .button-save')
     this.$slideContainer = $('.slides')
     this.markdown = localStorage.markdown || `# 极简PPT 
-                              两分钟就可以做出精美PPT
-    `
+                              使用Markdown语法进行编辑，
+                                 其中#代表一级标题
+                                 两个##代表2级标题
+                                 三个### 代表子标题
+`
 
     this.bind()
     this.start()
@@ -239,7 +242,6 @@ const Theme = {
     Array.from(this.$$figures).find($figure => $figure.dataset.theme === theme).classList.add('select')
     this.$transition.value = localStorage.transition || 'slide'
     this.$align.value = localStorage.align || 'center'
-    console.log('1111')
     this.$reveal.classList.add(this.$align.value)
 
   }
