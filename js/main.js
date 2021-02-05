@@ -164,6 +164,8 @@ const Editor = {
                                  其中#代表一级标题
                                  两个##代表2级标题
                                  三个### 代表子标题
+                                 ## 标题为#或##水平翻页
+                                 ### 标题为###垂直翻页
 `
 
     this.bind()
@@ -233,7 +235,7 @@ const Theme = {
   },
   loadTheme() {
 
-    let theme = localStorage.theme || 'beige'
+    let theme = localStorage.theme || 'league'
     let $link = document.createElement('link')
     $link.rel = 'stylesheet'
     $link.href = `css/theme/${theme}.css`
