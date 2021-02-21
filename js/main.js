@@ -160,6 +160,8 @@ const Editor = {
     this.$saveBtn = $('.editor .button-save')
     this.$slideContainer = $('.slides')
     this.markdown = localStorage.markdown || `# 极简PPT 
+                                鼠标浮到左上角打开菜单
+                                点击右下角进行翻页
                               使用Markdown语法进行编辑，
                                  其中#代表一级标题
                                  两个##代表2级标题
